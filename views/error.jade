@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .row.justify-content-center.my-auto.w-100
+    .col-md-10.col-lg-8.col-xl-6
+      .w-100.d-flex.flex-column
+        p.text-center
+          b=(error.status || 500)
+          |  | #{message || 'Unknown error'}
+        if error.stack
+          .p-3.bg-light.rounded
+            pre.mb-0 #{error.stack}

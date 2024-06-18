@@ -1,0 +1,22 @@
+services:
+  installer:
+    build: .
+    command: yarn install
+    restart: "no"
+    volumes:
+      - .:/usr/src/app
+
+  app:
+    build: .
+    command: yarn start:dev
+    depends_on:
+      installer:
+        condition: service_completed_successfully
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app

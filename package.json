@@ -1,0 +1,33 @@
+{
+  "name": "chargefree",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "start:dev": "cross-env DEBUG=chargefree:* nodemon ./bin/www",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@vitejs/plugin-legacy": "^5.4.1",
+    "axios": "^1.7.2",
+    "bootstrap-icons": "^1.11.3",
+    "chargebee": "^2.36.0",
+    "cookie-parser": "~1.4.4",
+    "csurf": "^1.11.0",
+    "debug": "~2.6.9",
+    "dotenv": "^16.4.5",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "sass": "^1.77.6",
+    "terser": "^5.31.1",
+    "vite": "^5.3.1"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.3.3",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.3"
+  }
+}

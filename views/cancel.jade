@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .row.justify-content-center.my-auto.w-100
+    .col-md-9.col-lg-7.col-xl-5
+      .w-100.d-flex.flex-column
+        p.lead Hey #{customer.first_name}, sorry to see you go. Are you sure you want to cancel?
+        form(action='/cancel' method='post')
+          input(type='hidden' name='_csrf' value=csrfToken)
+          input(type='hidden' name='subscriptionId' value=subscription.id)
+          .mb-3
+            label.form-label(for="cancel-reason") Reason for cancellation
+            each reason, i in reasons
+              .form-check
+                input.form-check-input(type="radio" id="cancel-reason-" + i name="reason" required value=reason)
+                label.form-check-label(for="cancel-reason-" + i)=reason
+          .mb-3
+            label.form-label(for="cancel-feedback") Feedback or suggestions
+            textarea#cancel-feedback.form-control(name='feedback' rows='4')
+          .btn-toolbar.gap-1
+            button.btn.btn-light.btn-lg(type="button") Keep it
+            button.btn.btn-danger.btn-lg(type="submit") Yes, cancel
