@@ -56,8 +56,8 @@ router.post("/cancel", async function (req, res, next) {
 
   try {
     const result = await chargebee.subscription
-      // .cancel(subscriptionId, { end_of_term: true })
-      .retrieve(subscriptionId)
+      .cancel(subscriptionId, { end_of_term: true })
+      // .retrieve(subscriptionId)
       .request();
 
     for (const action of postCancelActions) {
